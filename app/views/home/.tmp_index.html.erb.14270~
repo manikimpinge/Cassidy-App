@@ -3,15 +3,21 @@
 	<title>Cassidy House | Home</title>
 <% end %>
 <%= content_tag :div, :class => "image_carousel", :style => "background-color:#C1C1C1" do %>
-  <%= content_tag :div, :id => "foo2", :style => "height:142px !important" do%>
-    <% (1..10).each do |img| %>
-      <%= link_to image_tag('img'+img.to_s+'.jpg'), '/assets/img'+img.to_s+'.jpg', :rel => "lightbox", :class => "img_class", :title => "Click anywhere outside the image or the X to the right to close." %>
-    <% end %>
-  <% end %>
-  <%= link_to "", "javascript:void(0)", :id => "foo2_prev", :class => "prev" %>
-  <%= link_to "", "javascript:void(0)", :id => "foo2_next", :class => "next" %>
+   <%= content_tag :div, :id => "foo2", :style => "height:142px !important" do%>
+      <%= link_to image_tag('pic17.jpg'), '/assets/pic17.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pic19.jpg'), '/assets/pic19.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pic16.jpg'), '/assets/pic16.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pics1.jpg'), '/assets/pics1.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pics2.jpg'), '/assets/pics2.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pict1.jpg'), '/assets/pict1.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pict2.jpg'), '/assets/pict2.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pict3.jpg'), '/assets/pict3.jpg', :rel => "lightbox", :class => "img_class" %>
+		<%= link_to image_tag('pict4.jpg'), '/assets/pict4.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pict5.jpg'), '/assets/pict5.jpg', :rel => "lightbox", :class => "img_class" %>
+      <%= link_to image_tag('pict6.jpg'), '/assets/pict6.jpg', :rel => "lightbox", :class => "img_class" %>
+   <% end %>
+   <%= link_to "", "#", :id => "foo2_next", :class => "next" %>
 <% end %>
-
       <div class="row-fluid">
         <div class="span4">
           <h2>Books</h2>
@@ -37,11 +43,7 @@
       })
    });
 
-   $(document).on('mouseover', '#foo2_prev, #foo2_next', function() {
-      var direction = "right";
-      if($(this).attr('id') == "foo2_prev"){
-        direction = "left"
-      }
+   $(document).on('mouseover', '#foo2_next', function() {
       $("#foo2").carouFredSel({
          circular: true,
          infinite: true,
@@ -49,12 +51,11 @@
          pagination  : "#foo2_pag",
          scroll: {
             duration: 0.2
-         },
-         direction: direction
+         }
       });
    });
 
-   $(document).on('mouseout', '#foo2_prev, #foo2_next', function() {
+   $(document).on('mouseout', '#foo2_next', function() {
       $("#foo2").carouFredSel({
          auto: false
       })

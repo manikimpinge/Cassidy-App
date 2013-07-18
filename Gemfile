@@ -10,9 +10,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -41,4 +39,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
