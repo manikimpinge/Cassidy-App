@@ -39,35 +39,39 @@
    });
 
    $(document).on('mouseover', '#foo2_prev, #foo2_next', function() {
+      if ($('#foo2_prev').hasClass('play_true') || $('#foo2_next').hasClass('play_true')) {
+        $("#foo2").trigger('resume',true);
+      }else{
+      $('#foo2_prev,#foo2_next').addClass('play_true');
       var direction = "right";
-      if($(this).attr('id') == "foo2_prev"){
-        direction = "left"
+      if ($(this).attr('id') == "foo2_prev") {
+         direction = "left"
       }
       $("#foo2").carouFredSel({
          circular: true,
          infinite: true,
-         auto    : true,
-         pagination  : "#foo2_pag",
+         auto: {
+            play: true,
+            timeoutDuration: 0.2
+         },
+         pagination: "#foo2_pag",
          scroll: {
             duration: 0.2
          },
          direction: direction
       });
+	  }
    });
 
    $(document).on('mouseout', '#foo2_prev, #foo2_next', function() {
-      $("#foo2").carouFredSel({
-         auto: false
-      })
+      $("#foo2").trigger('pause',true);
    })
 	
 	$(document).on('mouseover', '.caroufredsel_wrapper a img', function() {
 		$(this).css('margin-top',0)
-		$(this).css('border',"2px solid #000000")
 	})
 
     $(document).on('mouseout', '.caroufredsel_wrapper a img', function() {
       $(this).css('margin-top',7)
-      $(this).css('border',"none")
     })
 </script>
