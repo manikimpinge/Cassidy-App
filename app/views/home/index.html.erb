@@ -2,10 +2,11 @@
 <% content_for :title do %> 
 	<title>Cassidy House | Home</title>
 <% end %>
+<h3>Latest Edition</h3>
 <%= content_tag :div, :class => "image_carousel", :style => "background-color:#C1C1C1" do %>
   <%= content_tag :div, :id => "foo2", :style => "height:142px !important" do%>
     <% (1..10).each do |img| %>
-      <%= link_to image_tag('img'+img.to_s+'.jpg'), '/assets/img'+img.to_s+'.jpg', :rel => "lightbox", :class => "img_class", :title => "Click anywhere outside the image or the X to the right to close." %>
+      <%= link_to image_tag('img'+img.to_s+'.jpg'), '/assets/img'+img.to_s+'.jpg', :rel => "lightbox", :class => "img_class" %>
     <% end %>
   <% end %>
   <%= link_to "", "javascript:void(0)", :id => "foo2_prev", :class => "prev" %>
@@ -59,4 +60,14 @@
          auto: false
       })
    })
+	
+	$(document).on('mouseover', '.caroufredsel_wrapper a img', function() {
+		$(this).css('margin-top',0)
+		$(this).css('border',"2px solid #000000")
+	})
+
+    $(document).on('mouseout', '.caroufredsel_wrapper a img', function() {
+      $(this).css('margin-top',7)
+      $(this).css('border',"none")
+    })
 </script>
